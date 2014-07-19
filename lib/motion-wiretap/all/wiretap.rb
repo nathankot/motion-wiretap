@@ -350,7 +350,7 @@ module MotionWiretap
   class WiretapFilter < WiretapChild
 
     def initialize(parent, filter)
-      @filter = filter
+      @filter = filter.weak!
       super(parent)
     end
 
@@ -368,7 +368,7 @@ module MotionWiretap
   class WiretapCombiner < WiretapChild
 
     def initialize(parent, combiner)
-      @combiner = combiner
+      @combiner = combiner.weak!
       super(parent)
     end
 
@@ -383,7 +383,7 @@ module MotionWiretap
   class WiretapReducer < WiretapChild
 
     def initialize(parent, memo, reducer)
-      @reducer = reducer
+      @reducer = reducer.weak!
       @memo = memo
       super(parent)
     end
@@ -399,7 +399,7 @@ module MotionWiretap
   class WiretapMapper < WiretapChild
 
     def initialize(parent, mapper)
-      @mapper = mapper
+      @mapper = mapper.weak!
       super(parent)
     end
 
